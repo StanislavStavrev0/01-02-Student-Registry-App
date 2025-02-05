@@ -11,7 +11,7 @@ on:
 
 jobs:
   build_test:
-   runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
     steps:
     - name: Clones the repository on the local machine
@@ -19,11 +19,11 @@ jobs:
     - name: Use Node.js 20
       uses: actions/setup-node@v4
       with:
-        node-version: 20
+        node-version: 20 # Ensure this version matches your project's requirements
         cache: 'npm'
     - name: Install npm
-      run: npm install  
-    - name: start app
+      run: npm install
+    - name: Start app
       run: npm run start
-    - name: run tests
+    - name: Run tests
       run: npm run test
