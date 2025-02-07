@@ -13,8 +13,6 @@ jobs:
   build_test:
     runs-on: ubuntu-latest
 
-    
-
     steps:
     - name: Clones the repository on the local machine
       uses: actions/checkout@v4
@@ -29,4 +27,21 @@ jobs:
       run: npm run start &
     - name: Run tests
       run: npm run test
-    
+
+  security_test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Clones the repository on the local machine
+      uses: actions/checkout@v4
+    - name: Use Node.js 20
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{matrix.node-version}}
+        cache: 'npm'
+    - name: Install npm
+      run: npm install
+    - name: Start the app
+      run: npm run start &
+    - name: Run tests
+      run: npm audit
