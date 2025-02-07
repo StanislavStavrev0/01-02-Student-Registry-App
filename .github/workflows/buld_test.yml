@@ -31,7 +31,7 @@ jobs:
 
   build_test:
     runs-on: ubuntu-latest
-    needs: build_test
+    needs: security_test
     steps:
     - name: Clones the repository on the local machine
       uses: actions/checkout@v4
